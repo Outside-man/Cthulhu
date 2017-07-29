@@ -1,0 +1,16 @@
+server:
+  port: 8088
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url:
+    username:
+    password:
+  thymeleaf:
+    cache: false
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
