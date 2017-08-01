@@ -15,6 +15,8 @@ public class PC {
 
     private Integer userId;
 
+    private Integer status;//0创建未完成 1创建完成 2死亡
+
     private Integer baseId;//基础
 
     private Integer attrId;//属性
@@ -41,6 +43,14 @@ public class PC {
 
     public void setUserId(Integer userId) {
         this.userId = userId;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
     public Integer getBaseId() {

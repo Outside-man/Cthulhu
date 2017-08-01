@@ -1,10 +1,12 @@
-package tuanz.model.struct.collection;
+package tuanz.model.struct.tools;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 import tuanz.model.struct.base.Skill;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static tuanz.core.constant.PCConstant.SKILLDEFAULT;
@@ -18,8 +20,13 @@ public class SkillList {
     private Map<String, Skill> listUnstudy;
     private Map<String, Skill> listStudy;
 
-    private void init(){
+    public SkillList(){
         allSkill = new HashMap<String, Skill>();
+        listUnstudy = new HashMap<String, Skill>();
+        listStudy = new HashMap<String, Skill>();
+    }
+
+    public void init(){
         for(int i =0;i<SKILLNAME.length;i++) {
             Skill skill = new Skill();
             skill.setSkillName(SKILLNAME[i]);
@@ -73,4 +80,29 @@ public class SkillList {
         skill.setStudied(true);
     }
 
+    public void defindSkill(String preSkillName, String defineSkillName){
+        Skill skill = allSkill.get(preSkillName);
+        skill.setSkillName(defineSkillName);
+        skill.setStudied(true);
+        allSkill.remove(preSkillName);
+        allSkill.put(preSkillName,skill);
+    }
+
+    public List<Skill> getJsonListStudy(){
+        List<Skill> studylist = new ArrayList<>();
+        for(Skill s : allSkill.values()){
+            if(s.getStudied())
+                studylist.add(s);
+        }
+        return studylist;
+    }
+
+    public List<Skill> getJsonListUnstudy(){
+        List<Skill> unstudylist = new ArrayList<>();
+        for(Skill s : allSkill.values()){
+            if(!s.getStudied())
+                unstudylist.add(s);
+        }
+        return unstudylist;
+    }
 }

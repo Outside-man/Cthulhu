@@ -2,13 +2,14 @@ package tuanz.model.pc;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 /**
  * Created by Yxm on 2017/7/31.
  */
 @Entity
 public class PCAttr {
-    @javax.persistence.Id
+    @Id
     @GeneratedValue
     private Integer Id;
 
@@ -37,6 +38,44 @@ public class PCAttr {
     private Integer Money;//财富
 
     private Integer cthulhuKnow;//克苏鲁知识
+
+    private Integer hpLimit;
+
+    private Integer hpNow;
+
+    private Integer mpLimit;
+
+    private Integer mpNow;
+
+    private Integer sanLimit;
+
+    private Integer sanNow;
+
+    public  PCAttr(){
+
+    }
+
+    public PCAttr(Integer PCId, Integer str, Integer dex, Integer con, Integer pow, Integer intell, Integer body, Integer edu, Integer money) {
+        this.PCId = PCId;
+        this.Str = str;
+        this.Dex = dex;
+        this.Con = con;
+        this.Pow = pow;
+        this.Intell = intell;
+        this.Body = body;
+        this.Edu = edu;
+        this.Money = money;
+        this.Ins = intell*5;
+        this.Luck = pow*5;
+        this.Know = edu*5;
+        this.cthulhuKnow = 0;
+        this.hpLimit = (con + body + 1)/2;
+        this.hpNow = hpLimit;
+        this.mpLimit = pow;
+        this.mpNow = mpLimit;
+        this.sanLimit = pow*5;
+        this.sanNow = sanLimit;
+    }
 
     public Integer getId() {
         return Id;
@@ -148,5 +187,53 @@ public class PCAttr {
 
     public void setCthulhuKnow(Integer cthulhuKnow) {
         this.cthulhuKnow = cthulhuKnow;
+    }
+
+    public Integer getHpLimit() {
+        return hpLimit;
+    }
+
+    public void setHpLimit(Integer hpLimit) {
+        this.hpLimit = hpLimit;
+    }
+
+    public Integer getHpNow() {
+        return hpNow;
+    }
+
+    public void setHpNow(Integer hpNow) {
+        this.hpNow = hpNow;
+    }
+
+    public Integer getMpLimit() {
+        return mpLimit;
+    }
+
+    public void setMpLimit(Integer mpLimit) {
+        this.mpLimit = mpLimit;
+    }
+
+    public Integer getMpNow() {
+        return mpNow;
+    }
+
+    public void setMpNow(Integer mpNow) {
+        this.mpNow = mpNow;
+    }
+
+    public Integer getSanLimit() {
+        return sanLimit;
+    }
+
+    public void setSanLimit(Integer sanLimit) {
+        this.sanLimit = sanLimit;
+    }
+
+    public Integer getSanNow() {
+        return sanNow;
+    }
+
+    public void setSanNow(Integer sanNow) {
+        this.sanNow = sanNow;
     }
 }

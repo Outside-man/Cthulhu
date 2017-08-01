@@ -2,13 +2,13 @@ package tuanz.model.pc;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-
+import javax.persistence.Id;
 /**
  * Created by Yxm on 2017/7/31.
  */
 @Entity
 public class PCSkill {
-    @javax.persistence.Id
+    @Id
     @GeneratedValue
     private Integer Id;
 

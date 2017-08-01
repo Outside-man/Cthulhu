@@ -15,7 +15,13 @@ public class UserService {
     @Autowired
     private UserRepo userRepo;
 
-    public User logincheck(String username, String password){
+    public  Boolean userExist(Integer userId){
+        User user = userRepo.findOne(userId);
+        if(user!=null)return true;
+        return false;
+    }
+
+    public User loginCheck(String username, String password){
         User user = userRepo.findByUsername(username);
         if(user!=null&&user.getPassword().equals(EncoderByMd5(password)))
             return user;
@@ -29,7 +35,7 @@ public class UserService {
             userRepo.save(user);
         }catch (Exception e){
             System.out.println(e.getMessage());
-            return -1;
+            return 0;
         }
         return 1;
     }

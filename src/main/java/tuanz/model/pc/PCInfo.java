@@ -2,13 +2,18 @@ package tuanz.model.pc;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-
+import javax.persistence.Id;
 /**
  * Created by Yxm on 2017/7/31.
+ * jobId
+ * Charact1
+ * Charact2
+ * Psychogeny
+ * Memo
  */
 @Entity
 public class PCInfo {
-    @javax.persistence.Id
+    @Id
     @GeneratedValue
     private Integer Id;
 
