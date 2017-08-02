@@ -15,7 +15,7 @@ public class PC {
 
     private Integer userId;
 
-    private Integer status;//0创建未完成 1创建完成 2死亡
+    private Integer status;//0创建未完成 1创建完成 2死亡 3疯狂
 
     private Integer baseId;//基础
 

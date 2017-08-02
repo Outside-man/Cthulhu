@@ -14,6 +14,10 @@ public class PCSkill {
 
     private Integer PCId;
 
+    private Integer Interest;
+
+    private Integer Profession;
+
     private String listSkill;
 
     public Integer getId() {
@@ -38,5 +42,21 @@ public class PCSkill {
 
     public void setListSkill(String listSkill) {
         this.listSkill = listSkill;
+    }
+
+    public Integer getInterest() {
+        return Interest;
+    }
+
+    public void setInterest(Integer interest) {
+        Interest = interest;
+    }
+
+    public Integer getProfession() {
+        return Profession;
+    }
+
+    public void setProfession(Integer profession) {
+        Profession = profession;
     }
 }

@@ -1,13 +1,10 @@
-package tuanz.model.struct.tools;
+package tuanz.model.vo.tools;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
-import tuanz.model.struct.base.Skill;
+import tuanz.model.vo.base.Skill;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static tuanz.core.constant.PCConstant.SKILLDEFAULT;
 import static tuanz.core.constant.PCConstant.SKILLNAME;
@@ -19,21 +16,39 @@ public class SkillList {
     private Map<String, Skill> allSkill;
     private Map<String, Skill> listUnstudy;
     private Map<String, Skill> listStudy;
+    private Map<String, Skill> listCanStudy;
 
     public SkillList(){
         allSkill = new HashMap<String, Skill>();
         listUnstudy = new HashMap<String, Skill>();
         listStudy = new HashMap<String, Skill>();
+        listCanStudy = new HashMap<String, Skill>();
     }
 
     public void init(){
         for(int i =0;i<SKILLNAME.length;i++) {
             Skill skill = new Skill();
+            skill.setSkillId(i);
             skill.setSkillName(SKILLNAME[i]);
             skill.setSkillValue(SKILLDEFAULT[i]);
             skill.setStudied(false);
             allSkill.put(SKILLNAME[i], skill);
         }
+    }
+
+    public Map<String, Skill> getListCanStudy(Integer[] canStudy){
+        listCanStudy.clear();
+        for(int i = 0;i<canStudy.length;i++){
+            for(Skill s : allSkill.values()){
+                if(s.getSkillId()==canStudy[i]){
+                    listCanStudy.put(s.getSkillName(),s);
+                    break;
+                }
+            }
+        }
+
+
+        return listCanStudy;
     }
 
     public Map<String, Skill> getListStudy(){

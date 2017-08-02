@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- ===========================
+    SITE TITLE
+    =========================== -->
+		<title>PC基础信息</title>
+
+		<!-- ===========================
+    FAVICONS
+    =========================== -->
+		<link rel="icon" href="/img/favicon.png" />
+		<link rel="apple-touch-icon" sizes="144x144" href="/img/apple-touch-icon-ipad-retina.png" />
+		<link rel="apple-touch-icon" sizes="114x114" href="/img/apple-touch-icon-iphone-retina.png" />
+		<link rel="apple-touch-icon" sizes="72x72" href="/img/apple-touch-icon-ipad.png" />
+		<link rel="apple-touch-icon" sizes="57x57" href="/img/apple-touch-icon-iphone.png" />
+
+		<!-- ===========================
+    STYLESHEETS
+    =========================== -->
+		<link rel="stylesheet" href="/css/base/bootstrap.min.css" />
+		<link rel="stylesheet" href="/css/base/bootstrap.css" />
+		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+
+		<link rel="stylesheet" href="/css/base/style.css" />
+		<link rel="stylesheet" href="/css/base/responsive.css" />
+		<link rel="stylesheet" href="/css/pc-info.css" />
+		<link rel="stylesheet" href="/css/common.css" />
+
+		<!--[if IE]>
+        <script src="https://cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	</head>
+
+	<body class="container">
+		<!-- ===========================
+        base info
+        ============================ -->
+		<div id="header" class="row">
+			<div class="">
+				<img class="propic info-base-left" src="/img/bappy.jpg" alt=""/>
+				<div class="info-base-right">
+					<div class="">
+						<h1>姓名</h1>
+					</div>
+					<ul class="list-unstyled">
+						<li><span class="glyphicon glyphicon-home info-base"></span>出生地
+						</li>
+						<li><span class="glyphicon glyphicon-briefcase info-base"></span>职业
+						</li>
+						<li><span class="glyphicon glyphicon-education info-base"></span>教育
+						</li>
+						<li><span class="glyphicon glyphicon-yen info-base"></span>资产
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- base info end-->
+
+		<hr class="firsthr"/>
+
+		<!-- ===========================
+        base value PART
+        ============================ -->
+		<div>
+			<div class="btn-right">
+				<button class="btn btn-default btn-circle clock"><i class="glyphicon glyphicon-lock"></i></button>
+			</div>
+			<h3 class="mobmid">属性值</h3>
+			<div class="btn-right">
+				<button class="btn btn-default btn-circle decfive "><i class="glyphicon glyphicon-minus"></i></button>
+				<button class="btn btn-default btn-circle decone "><i class="glyphicon glyphicon-minus"></i></button>
+				<button class="btn btn-default btn-circle addone "><i class="glyphicon glyphicon-plus"></i></button>
+				<button class="btn btn-default btn-circle addfive "><i class="glyphicon glyphicon-plus"></i></button>
+			</div>
+			<p>HP(12/18)</p>
+			<div class="progress">
+				<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width: 65%">
+					<span class="sr-only">65% Complete (success)</span>
+				</div>
+			</div>
+			
+			<div class="btn-right">
+				<button class="btn btn-default btn-circle decfive "><i class="glyphicon glyphicon-minus"></i></button>
+				<button class="btn btn-default btn-circle decone "><i class="glyphicon glyphicon-minus"></i></button>
+				<button class="btn btn-default btn-circle addone "><i class="glyphicon glyphicon-plus"></i></button>
+				<button class="btn btn-default btn-circle addfive "><i class="glyphicon glyphicon-plus"></i></button>
+			</div>
+			<p>Mp(60/100)</p>
+			<div class="progress">
+				<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+					<span class="sr-only">60% Complete (warning)</span>
+				</div>
+			</div>
+			
+			<div class="btn-right">
+				<button class="btn btn-default btn-circle decfive "><i class="glyphicon glyphicon-minus"></i></button>
+				<button class="btn btn-default btn-circle decone "><i class="glyphicon glyphicon-minus"></i></button>
+				<button class="btn btn-default btn-circle addone "><i class="glyphicon glyphicon-plus"></i></button>
+				<button class="btn btn-default btn-circle addfive "><i class="glyphicon glyphicon-plus"></i></button>
+			</div>
+			<p>San(85/100)</p>
+			<div class="progress">
+				<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%">
+					<span class="sr-only">85% Complete</span>
+				</div>
+			</div>
+		</div>
+		<!--base value end-->
+
+	</body>
+	<!--necessary scripts and plugins-->
+	<script src="/js/base/jquery.min.js"></script>
+	<script src="/js/base/bootstrap.min.js"></script>
+	<script src="/js/base/jquery.nicescroll.min.js"></script>
+	<script src="/js/base/evenfly.js"></script>
+	<script src="/js/base_info.js"></script>
+
+</html>

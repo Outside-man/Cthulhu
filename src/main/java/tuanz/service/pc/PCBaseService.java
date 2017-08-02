@@ -33,4 +33,8 @@ public class PCBaseService {
         pcRepo.saveAndFlush(pc);
         return pcBase;
     }
+
+    public PCBase getPCBase(Integer pcId){
+        return pcBaseRepo.findByPCId(pcId);
+    }
 }

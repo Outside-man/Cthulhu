@@ -1,12 +1,9 @@
-.info-base{
-	padding-right: 10px;
+.progress{
+	height: 30px;
 }
-
-.info-base-right{
-	margin-left: 165px;
+.btn-right{
+	float: right;
 }
-
-.info-base-left{
-	float: left;
+.btn-right-5-1{
+	margin-left: 10px;
 }
-

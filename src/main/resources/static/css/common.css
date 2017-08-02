@@ -1,3 +1,15 @@
+.info-base{
+	padding-right: 10px;
+}
+
+.info-base-right{
+	margin-left: 185px;
+}
+
+.info-base-left{
+	float: left;
+	margin-left: 20px;
+}
 .login-common{
 	width: 65%;
 	margin-left: auto;
@@ -17,4 +29,64 @@
 	top: 0px;
 	bottom: 0px;
 }
+.btn-circle{
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+.btn-circle.addone{
+	background: #D0E9C6;
+}
+.btn-circle.addfive{
+	background: #398439;
+}
+.btn-circle.decone{
+	background: #CE8483;
+}
+.btn-circle.decfive{
+	background: #AC2925;
+}
+.btn-circle.clock{
+	background: #999999;
+}
+.btn-circle.btn-lg {
+  width: 50px;
+  height: 50px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 25px;
+}
+.btn-circle.btn-xl {
+  width: 70px;
+  height: 70px;
+  padding: 10px 16px;
+  font-size: 24px;
+  line-height: 1.33;
+  border-radius: 35px;
+}
 
+.col-4-1{
+	width: 20%;
+	float: left;
+	margin-left: 2.5%;
+}
+.col-4-2{
+	width: 20%;
+	float: left;
+	margin-left: 5%;
+}
+.col-4-3{
+	width: 20%;
+	float: left;
+	margin-left: 5%;
+}
+.col-4-4{
+	width: 20%;
+	float: left;
+	margin-left: 5%;
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="" xmlns:th="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- ===========================
+    SITE TITLE
+    =========================== -->
+		<title>PC列表</title>
+
+		<!-- ===========================
+    FAVICONS
+    =========================== -->
+		<link rel="icon" href="img/favicon.png" />
+		<link rel="apple-touch-icon" sizes="144x144" href="img/apple-touch-icon-ipad-retina.png" />
+		<link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-iphone-retina.png" />
+		<link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-ipad.png" />
+		<link rel="apple-touch-icon" sizes="57x57" href="img/apple-touch-icon-iphone.png" />
+
+		<!-- ===========================
+    STYLESHEETS
+    =========================== -->
+		<link rel="stylesheet" href="css/base/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/base/bootstrap.css" />
+		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+
+		<link rel="stylesheet" href="css/base/style.css" />
+		<link rel="stylesheet" href="css/base/responsive.css" />
+		<link rel="stylesheet" href="css/pc-info.css" />
+		<link rel="stylesheet" href="css/common.css" />
+
+		<!--[if IE]>
+        <script src="https://cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	</head>
+
+	<body class="container">
+
+	<button type="button" class="list-group-item list-group-item-heading">新建PC</button>
+		<div class="list-group">
+			<div th:each="pc : ${pcList}" th:switch="${pc.key.Status}">
+				<button type="button" th:case="0" class="select list-group-item list-group-item-warning" th:value="${pc.key.Id}">（未完成）<span th:text="${pc.value.Name}"/></button>
+				<button type="button" th:case="1" class="select list-group-item list-group-item-success" th:value="${pc.key.Id}">（正常）<span th:text="${pc.value.Name}"/></button>
+				<button type="button" th:case="2" class="select list-group-item list-group-item-danger" th:value="${pc.key.Id}">（死亡）<span th:text="${pc.value.Name}"/></button>
+				<button type="button" th:case="3" class="select list-group-item list-group-item-danger" th:value="${pc.key.Id}">（疯狂）<span th:text="${pc.value.Name}"/></button>
+			</div>
+		</div>
+	</body>
+	<!--necessary scripts and plugins-->
+	<script src="js/base/jquery.min.js"></script>
+	<script src="js/base/bootstrap.min.js"></script>
+	<script src="js/base/jquery.nicescroll.min.js"></script>
+	<script src="js/base/evenfly.js"></script>
+	<script src="js/base_info.js"></script>
+	<script>
+        //<![CDATA[
+        $(function(){
+            $('.select').click(function() {
+                var pcId = $(this).val();
+                var data = {
+                    "pcId": pcId,
+                };
+                alert(pcId);
+                $.ajax({
+                    type:"POST",
+                    url: "/PC/usePc",
+                    data: data,
+                    dataType: "json",
+                    success: function(data){
+                        if(data.status == 0)
+                            window.location.href = "/PC/pcInfo";
+                        else alert(data.message);
+                    }
+                });
+            });
+        });
+        //]]>
+	</script>
+
+</html>

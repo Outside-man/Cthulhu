@@ -3,8 +3,13 @@ package tuanz.service.pc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import tuanz.model.pc.PC;
+import tuanz.model.pc.PCBase;
 import tuanz.repository.PCRepo;
 import tuanz.service.user.UserService;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -40,5 +45,25 @@ public class PCService {
         return pc;
     }
 
+    public Map<PC,PCBase> getPCList(Integer userId){
+        if(!userService.userExist(userId))return null;
+        Map<PC, PCBase> map = new HashMap<>();
+        List<PC> listPC = pcRepo.findAllByUserId(userId);
+        for(PC p : listPC){
+            try {
+                PCBase base = pcBaseService.getPCBase(p.getId());
+                if(base==null) throw new Exception(p.getUserId()+"的"+p.getId()+"的base不存在");
+                map.put(p,base);
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+                pcRepo.delete(p);
+            }
+        }
+        return map;
+    }
+
+    public PC getPC(Integer pcId){
+        return pcRepo.getOne(pcId);
+    }
 
 }

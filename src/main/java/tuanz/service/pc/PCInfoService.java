@@ -37,5 +37,8 @@ public class PCInfoService {
         return pcInfo;
     }
 
+    public PCInfo getPCInfo(Integer pcId){
+        return pcInfoRepo.findByPCId(pcId);
+    }
 
 }

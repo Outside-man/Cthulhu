@@ -1,9 +1,11 @@
-package tuanz.model.struct.base;
+package tuanz.model.vo.base;
 
 /**
  * Created by Yxm on 2017/7/31.
  */
 public class Skill {
+    private Integer skillId;
+
     private String skillName;
 
     private Integer skillValue;
@@ -12,7 +14,13 @@ public class Skill {
 
     private Boolean canStudy;
 
-    private Boolean canInterest;
+    public Integer getSkillId() {
+        return skillId;
+    }
+
+    public void setSkillId(Integer skillId) {
+        this.skillId = skillId;
+    }
 
     public String getSkillName() {
         return skillName;
@@ -46,11 +54,4 @@ public class Skill {
         this.canStudy = canStudy;
     }
 
-    public Boolean getCanInterest() {
-        return canInterest;
-    }
-
-    public void setCanInterest(Boolean canInterest) {
-        this.canInterest = canInterest;
-    }
 }
