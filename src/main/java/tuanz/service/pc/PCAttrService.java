@@ -35,4 +35,8 @@ public class PCAttrService {
     public PCAttr getPCAttr(Integer pcId){
         return pcAttrRepo.findByPCId(pcId);
     }
+
+    public PCAttr savePCAttr(PCAttr pcAttr){
+        return pcAttrRepo.save(pcAttr);
+    }
 }

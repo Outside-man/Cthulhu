@@ -1,5 +1,6 @@
 package tuanz.model.pc;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -14,6 +15,7 @@ public class PCMagic {
 
     private Integer PCId;
 
+    @Column(columnDefinition = "TEXT")
     private String listMagic;
 
     public Integer getId() {

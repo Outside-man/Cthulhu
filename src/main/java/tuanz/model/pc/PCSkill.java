@@ -1,5 +1,6 @@
 package tuanz.model.pc;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -18,7 +19,11 @@ public class PCSkill {
 
     private Integer Profession;
 
-    private String listSkill;
+    @Column(columnDefinition = "TEXT")
+    private String listStudySkill;
+
+    @Column(columnDefinition = "TEXT")
+    private String listUnStudySkill;
 
     public Integer getId() {
         return Id;
@@ -36,14 +41,6 @@ public class PCSkill {
         this.PCId = PCId;
     }
 
-    public String getListSkill() {
-        return listSkill;
-    }
-
-    public void setListSkill(String listSkill) {
-        this.listSkill = listSkill;
-    }
-
     public Integer getInterest() {
         return Interest;
     }
@@ -58,5 +55,21 @@ public class PCSkill {
 
     public void setProfession(Integer profession) {
         Profession = profession;
+    }
+
+    public String getListStudySkill() {
+        return listStudySkill;
+    }
+
+    public void setListStudySkill(String listStudySkill) {
+        this.listStudySkill = listStudySkill;
+    }
+
+    public String getListUnStudySkill() {
+        return listUnStudySkill;
+    }
+
+    public void setListUnStudySkill(String listUnStudySkill) {
+        this.listUnStudySkill = listUnStudySkill;
     }
 }

@@ -1,9 +1,12 @@
 package tuanz.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import tuanz.controller.Base.BaseController;
+import tuanz.service.pc.*;
+import tuanz.service.user.UserService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,14 +17,21 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class Demo extends BaseController {
 
-//    @Autowired
-//    private PCService pcService;
-//    @Autowired
-//    UserService userService;
-//    @Autowired
-//    private PCInfoService pcInfoService;
-//    @Autowired
-//    private PCAttrService pcAttrService;
+    @Autowired
+    private PCService pcService;
+    @Autowired
+    UserService userService;
+    @Autowired
+    private PCAttrService pcAttrService;
+    @Autowired
+    private PCInfoService pcInfoService;
+    @Autowired
+    private PCSkillService pcSkillService;
+    @Autowired
+    private PCMagicService pcMagicService;
+
+    @Autowired
+    private PCItemService pcItemService;
     @RequestMapping("demo")
     public String demo(HttpServletRequest request, HttpServletResponse response, Model model){
         response.setHeader("Access-Control-Allow-Origin", "*");
@@ -43,6 +53,13 @@ public class Demo extends BaseController {
 //        return "base_skill";
 //        userService.register("yxm","111");
 //        System.out.println(JSON.toJSONString(pcService.getPCList(1)));
+
+
+//        PCAttr pcAttr= pcAttrService.completePCAttr(1,10,10,10,10,10,10,10,10,10);
+//        pcInfoService.completePCInfo(1,7,0,0,"","");
+//        pcSkillService.initPCSkill(1);
+        pcMagicService.initPCMagic(1);
+        pcItemService.initPCItem(1);
         return null;
     }
 }

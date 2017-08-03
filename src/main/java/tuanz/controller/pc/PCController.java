@@ -33,6 +33,10 @@ public class PCController extends BaseController{
     private PCAttrService pcAttrService;
     @Autowired
     private PCSkillService pcSkillService;
+    @Autowired
+    private PCItemService pcItemService;
+    @Autowired
+    private PCMagicService pcMagicService;
 
     @RequestMapping(value = {"","/","/list"},method = GET)
     public String pclist(HttpServletRequest request, HttpServletResponse response, Model model){
@@ -57,14 +61,15 @@ public class PCController extends BaseController{
             PCInfo info = pcInfoService.getPCInfo(pcId);
             PCSkill skill = pcSkillService.getPCSkill(pcId);
             PCAttr attr = pcAttrService.getPCAttr(pcId);
-            //TODO magic item 插入到VO中
-//            vo.setPc(pc);
-//            vo.setBase(base);
-//            vo.setInfo(info);
-//            vo.setAttr(attr);
-//            vo.setSkill(skill);
-//            vo.setMagic();
-//            vo.setItem();
+            PCItem item = pcItemService.getPCItem(pcId);
+            PCMagic magic = pcMagicService.getPCMagic(pcId);
+            vo.setPc(pc);
+            vo.setBase(base);
+            vo.setInfo(info);
+            vo.setAttr(attr);
+            vo.setSkill(skill);
+            vo.setMagic(magic);
+            vo.setItem(item);
             setCurrentPC(request,vo);
             return ajaxReturn(response,pcId,"使用"+pcId+"人物卡",0);
         }else{
@@ -75,7 +80,10 @@ public class PCController extends BaseController{
     @RequestMapping(value = {"/pcInfo"},method = GET)
     public String pcInfo(HttpServletRequest request, HttpServletResponse response, Model model){
         if(getCurrentUser(request)!=null&&getCurrentPC(request)!=null){
-            //TODO 往model里加入信息
+            model.addAttribute("pc",getCurrentPC(request).getPc());
+            model.addAttribute("base",getCurrentPC(request).getBase());
+            model.addAttribute("attr",getCurrentPC(request).getAttr());
+            model.addAttribute("info",getCurrentPC(request).getInfo());
             return "pc/base_info";
         }else{
             return "redirect:/index ";

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="" xmlns:th="http://www.w3.org/1999/xhtml">
 
 	<head>
 		<meta charset="UTF-8" />
@@ -46,12 +46,12 @@
 				<img class="propic info-base-left" src="/img/bappy.jpg" alt=""/>
 				<div class="info-base-right">
 					<div class="">
-						<h1>姓名</h1>
+						<h1><span th:text="${base.Name}"/></h1>
 					</div>
 					<ul class="list-unstyled">
-						<li><span class="glyphicon glyphicon-home info-base"></span>出生地
+						<li><span class="glyphicon glyphicon-home info-base"></span><span th:text="${base.Hometwon}"/>
 						</li>
-						<li><span class="glyphicon glyphicon-briefcase info-base"></span>职业
+						<li><span class="glyphicon glyphicon-briefcase info-base"></span><span th:text="${base.Job}"/>
 						</li>
 						<li><span class="glyphicon glyphicon-education info-base"></span>教育
 						</li>
