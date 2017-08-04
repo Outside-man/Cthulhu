@@ -32,6 +32,11 @@ public class UserController extends BaseController {
             return "index/login";
         }
     }
+    @RequestMapping(value = {"/register"},method = GET)
+    public String register(HttpServletRequest request, HttpServletResponse response, Model model){
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        return "index/register";
+    }
     @RequestMapping(value = {"/login"},method = POST)
     public String login(HttpServletRequest request, HttpServletResponse response, Model model,
                         @RequestParam("username")String username,
@@ -43,6 +48,19 @@ public class UserController extends BaseController {
             return ajaxReturn(response,null,"登录成功",0);
         }
         return ajaxReturn(response,null,"账户或密码不正确",1);
+
+    }
+    @RequestMapping(value = {"/reg"},method = POST)
+    public String reg(HttpServletRequest request, HttpServletResponse response, Model model,
+                        @RequestParam("username")String username,
+                        @RequestParam("password")String password){
+//        response.setHeader("Access-Control-Allow-Origin", "*");
+        User user = userService.register(username,password);
+        if(user!=null){
+            setCurrentUser(request,user);
+            return ajaxReturn(response,null,"注册成功",0);
+        }
+        return ajaxReturn(response,null,"用户已存在",1);
 
     }
 }

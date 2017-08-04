@@ -28,16 +28,16 @@ public class UserService {
         return null;
     }
 
-    public Integer register(String username, String password){
+    public User register(String username, String password){
         User user = new User(username,EncoderByMd5(password));
         try{
             if(userRepo.findByUsername(username)!=null)throw new Exception("账户"+username+"已存在");
             userRepo.save(user);
         }catch (Exception e){
             System.out.println(e.getMessage());
-            return 0;
+            return null;
         }
-        return 1;
+        return user;
     }
 }
 

@@ -39,4 +39,17 @@ public class PCAttrService {
     public PCAttr savePCAttr(PCAttr pcAttr){
         return pcAttrRepo.save(pcAttr);
     }
+
+    public PCAttr saveBaseAttr(Integer id, Integer nowHp, Integer limtHp, Integer nowMp, Integer limtMp,
+                               Integer nowSan, Integer limtSan){
+        PCAttr attr = pcAttrRepo.findOne(id);
+        attr.setHpNow(nowHp);
+        attr.setHpLimit(limtHp);
+        attr.setMpNow(nowMp);
+        attr.setMpLimit(limtMp);
+        attr.setSanNow(nowSan);
+        attr.setSanLimit(limtSan);
+        pcAttrRepo.saveAndFlush(attr);
+        return attr;
+    }
 }

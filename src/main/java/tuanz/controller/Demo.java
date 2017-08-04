@@ -5,6 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import tuanz.controller.Base.BaseController;
+import tuanz.model.pc.PC;
+import tuanz.model.pc.PCAttr;
 import tuanz.service.pc.*;
 import tuanz.service.user.UserService;
 
@@ -55,11 +57,14 @@ public class Demo extends BaseController {
 //        System.out.println(JSON.toJSONString(pcService.getPCList(1)));
 
 
-//        PCAttr pcAttr= pcAttrService.completePCAttr(1,10,10,10,10,10,10,10,10,10);
-//        pcInfoService.completePCInfo(1,7,0,0,"","");
-//        pcSkillService.initPCSkill(1);
-        pcMagicService.initPCMagic(1);
-        pcItemService.initPCItem(1);
+//
+//        PC pc = pcService.create(1,"武田君","水手","男","东京",22);
+        PCAttr pcAttr= pcAttrService.completePCAttr(2,10,10,10,10,10,10,10,10,10);
+        pcInfoService.completePCInfo(2,7,0,0,"","");
+        pcSkillService.initPCSkill(2);
+        pcMagicService.initPCMagic(2);
+        pcItemService.initPCItem(2);
+
         return null;
     }
 }

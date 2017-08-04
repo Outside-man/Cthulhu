@@ -90,6 +90,23 @@ public class PCController extends BaseController{
         }
     }
 
+    @RequestMapping(value = {"/saveBaseAttr"},method = POST)
+    public String usePc(HttpServletRequest request, HttpServletResponse response, Model model,
+                        @RequestParam("hpNow")Integer hpNow,
+                        @RequestParam("hpLimt")Integer hoLimt,
+                        @RequestParam("mpNow")Integer mpNow,
+                        @RequestParam("mpLimt")Integer mpLimt,
+                        @RequestParam("sanNow")Integer sanNow,
+                        @RequestParam("sanLimt")Integer sanLimt){
+        if(getCurrentUser(request)!=null&&getCurrentPC(request)!=null){
+            PCAttr pcAttr = pcAttrService.saveBaseAttr(getCurrentPC(request).getAttr().getId(),hpNow,hoLimt,mpNow,mpLimt,sanNow,sanLimt);
+            getCurrentPC(request).setAttr(pcAttr);
+            return ajaxReturn(response,null,"保存成功",0);
+        }else{
+            return ajaxReturn(response,null," 未登录",-1);
+        }
+    }
+
 
 
 }

@@ -49,13 +49,14 @@
 						<h1><span th:text="${base.Name}"/></h1>
 					</div>
 					<ul class="list-unstyled">
+
+						<li><span class="glyphicon glyphicon glyphicon-user info-base"></span><span th:text="${base.Sex}"/>
+						</li>
+						<li><span class="glyphicon glyphicon glyphicon-hourglass info-base"></span><span th:text="${base.Age}"/>
+						</li>
 						<li><span class="glyphicon glyphicon-home info-base"></span><span th:text="${base.Hometwon}"/>
 						</li>
 						<li><span class="glyphicon glyphicon-briefcase info-base"></span><span th:text="${base.Job}"/>
-						</li>
-						<li><span class="glyphicon glyphicon-education info-base"></span>教育
-						</li>
-						<li><span class="glyphicon glyphicon-yen info-base"></span>资产
 						</li>
 					</ul>
 				</div>
@@ -63,13 +64,35 @@
 		</div>
 		<!-- base info end-->
 
-		<hr class="firsthr"/>
+		<div class="row">
+			<div class="info-base-left">
+				<ul class="list-unstyled">
+					<li><span class="glyphicon glyphicon-education info-base"></span>教育
+					</li>
+					<li><span class="glyphicon glyphicon-yen info-base"></span>财富
+					</li>
+					<li><span class="glyphicon glyphicon-list-alt info-base"></span>备注
+					</li>
+				</ul>
+			</div>
+			<div class="info-base-right">
+				<ul class="list-unstyled">
+					<li><span class="glyphicon glyphicon-info-sign info-base"></span>特征
+					</li>
+					<li><span class="glyphicon glyphicon-warning-sign info-base"></span>精神障碍
+					</li>
+
+				</ul>
+			</div>
+		</div>
+		<hr class="firsthr" />
 
 		<!-- ===========================
         base value PART
         ============================ -->
 		<div>
 			<div class="btn-right">
+				<button class="btn btn-default btn-circle save"><i class="glyphicon glyphicon-ok"></i></button>
 				<button class="btn btn-default btn-circle clock"><i class="glyphicon glyphicon-lock"></i></button>
 			</div>
 			<h3 class="mobmid">属性值</h3>
@@ -79,7 +102,7 @@
 				<button class="btn btn-default btn-circle addone "><i class="glyphicon glyphicon-plus"></i></button>
 				<button class="btn btn-default btn-circle addfive "><i class="glyphicon glyphicon-plus"></i></button>
 			</div>
-			<p>HP(12/18)</p>
+			<p id="hp" th:text="|HP(${attr.hpNow}/${attr.hpLimit})|"/>
 			<div class="progress">
 				<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width: 65%">
 					<span class="sr-only">65% Complete (success)</span>
@@ -92,7 +115,7 @@
 				<button class="btn btn-default btn-circle addone "><i class="glyphicon glyphicon-plus"></i></button>
 				<button class="btn btn-default btn-circle addfive "><i class="glyphicon glyphicon-plus"></i></button>
 			</div>
-			<p>Mp(60/100)</p>
+			<p id="mp" th:text="|HP(${attr.mpNow}/${attr.mpLimit})|"/>
 			<div class="progress">
 				<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
 					<span class="sr-only">60% Complete (warning)</span>
@@ -105,7 +128,7 @@
 				<button class="btn btn-default btn-circle addone "><i class="glyphicon glyphicon-plus"></i></button>
 				<button class="btn btn-default btn-circle addfive "><i class="glyphicon glyphicon-plus"></i></button>
 			</div>
-			<p>San(85/100)</p>
+			<p id="san" th:text="|HP(${attr.sanNow}/${attr.sanLimit})|"/>
 			<div class="progress">
 				<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%">
 					<span class="sr-only">85% Complete</span>

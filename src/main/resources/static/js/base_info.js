@@ -10,6 +10,17 @@ function setValueBar(valueBar, now, limt){
 	valueBar.parent().next().html(str+'('+now+'/'+limt+')');
 	valueBar.parent().next().next().children(0).css('width',(now/limt)*100+'%');
 }
+function getValue(p){
+	var str = p.text();
+    now = str.split('(')[1].split('/')[0];
+    limt = str.split('/')[1].split(')')[0];
+}
+function initValueBar(p){
+	var str = p.text();
+    now = str.split('(')[1].split('/')[0];
+    limt = str.split('/')[1].split(')')[0];
+    p.next().children(0).css('width',(now/limt)*100+'%')
+}
 $(function(){
 	$(".clock").click(function(){
 //		clock==0?clock=1:clock=0;
@@ -63,9 +74,40 @@ $(function(){
 		if(now>limt) now = limt;
 		setValueBar($(this), now, limt);
 	});
-	
+    $(".save").click(function(){
+        	getValue($("#hp"));
+        	var hpNow = now;
+        	var hpLimt = limt;
+            getValue($("#mp"));
+			var mpNow = now;
+			var mpLimt = limt;
+            getValue($("#san"));
+            var sanNow = now;
+            var sanLimt = limt;
+            var data = {
+                "hpNow": hpNow,
+                "hpLimt": hpLimt,
+                "mpNow": mpNow,
+                "mpLimt": mpLimt,
+                "sanNow": sanNow,
+                "sanLimt": sanLimt
+            };
+            $.ajax({
+                type:"POST",
+                url: "/PC/saveBaseAttr",
+                data: data,
+                dataType: "json",
+                success: function(data){
+                    if(data.status == 0) alert(data.message);
+                    else alert(data.message);
+                }
+            });
+        });
 });
 function setHeight(){
 	$(".container").css('height',$(window).height());
 };
 setHeight();
+initValueBar($("#hp"));
+initValueBar($("#mp"));
+initValueBar($("#san"));

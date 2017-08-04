@@ -48,7 +48,8 @@
 				<span class="input-group-addon glyphicon glyphicon-lock"></span>
 				<input id="password" type="password" class="form-control" placeholder="Password" aria-describedby="basic-addon1"/>
 			</div>
-			<button id="login" class="btn btn-success">登录</button>
+				<button id="login" class="btn btn-success">登录</button>
+				<button id="register" class="btn btn-success">注册</button>
 		</div>
 	</body>
 	<!--necessary scripts and plugins-->
@@ -77,6 +78,9 @@
                         else alert(data.message);
                     }
                 });
+            });
+            $('#register').click(function() {
+				window.location.href = "/register";
             });
         });
         //]]>
