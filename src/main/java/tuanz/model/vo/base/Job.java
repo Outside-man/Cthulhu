@@ -36,7 +36,7 @@ public class Job {
                 this.Profession = pcAttr.getEdu()*20;
                 this.canStudySkill = new Integer[]{3,56,0,17,16,67};
                 this.Desc = "“信誉”的技能值获得+10%的加值。对患者的“劝说”获得+10%的加值";
-                skillList.getAllSkill().get("信誉").setSkillValue(skillList.getAllSkill().get("信誉").getSkillValue()+10);
+                skillList.getAllSkill().get(2).setSkillValue(skillList.getAllSkill().get(2).getSkillValue()+10);
                 break;
             case 2:
                 this.jobName = "急诊医生";
@@ -76,7 +76,7 @@ public class Job {
                 this.Profession = pcAttr.getEdu()*10+Math.max(pcAttr.getStr(),pcAttr.getDex())*10;
                 this.canStudySkill = new Integer[]{37,59,2,11,67};
                 this.Desc = "“侦查”获得+10%修正";
-                skillList.getAllSkill().get("侦查").setSkillValue(skillList.getAllSkill().get("侦查").getSkillValue()+10);
+                skillList.getAllSkill().get(16).setSkillValue(skillList.getAllSkill().get(16).getSkillValue()+10);
                 break;
             case 8:
                 this.jobName = "科学搜查研究员";
@@ -103,15 +103,15 @@ public class Job {
                 this.Profession = pcAttr.getEdu()*10+Math.max(pcAttr.getDex(),pcAttr.getPow())*10;
                 this.canStudySkill = new Integer[]{39,41,28,27,61,62,63,64,67};
                 this.Desc = "专门领域的“艺术”技能获得+10%修正";
-                skillList.getAllSkill().get("art1").setSkillValue(skillList.getAllSkill().get("art1").getSkillValue()+10);
+                skillList.getAllSkill().get(63).setSkillValue(skillList.getAllSkill().get(63).getSkillValue()+10);
                 break;
             case 12:
                 this.jobName = "舞者";
                 this.Profession = pcAttr.getEdu()*10+Math.max(pcAttr.getDex(),pcAttr.getPow())*10;
                 this.canStudySkill = new Integer[]{67,15,22,5,14,16,61};
                 this.Desc = "“艺术（舞蹈）”和“闪躲”获得+10%的修正";
-                skillList.getAllSkill().get("art1").setSkillValue(skillList.getAllSkill().get("art1").getSkillValue()+10);
-                skillList.getAllSkill().get("闪躲").setSkillValue(skillList.getAllSkill().get("闪躲").getSkillValue()+10);
+                skillList.getAllSkill().get(63).setSkillValue(skillList.getAllSkill().get(63).getSkillValue()+10);
+                skillList.getAllSkill().get(15).setSkillValue(skillList.getAllSkill().get(15).getSkillValue()+10);
                 break;
             case 13:
                 this.jobName = "设计师";

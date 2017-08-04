@@ -13,16 +13,16 @@ import static tuanz.core.constant.PCConstant.SKILLNAME;
  * Created by Yxm on 2017/7/31.
  */
 public class SkillList {
-    private Map<String, Skill> allSkill;
-    private Map<String, Skill> listUnstudy;
-    private Map<String, Skill> listStudy;
-    private Map<String, Skill> listCanStudy;
+    private List<Skill> allSkill;
+    private List<Skill> listUnstudy;
+    private List<Skill> listStudy;
+    private List<Skill> listCanStudy;
 
     public SkillList(){
-        allSkill = new HashMap<String, Skill>();
-        listUnstudy = new HashMap<String, Skill>();
-        listStudy = new HashMap<String, Skill>();
-        listCanStudy = new HashMap<String, Skill>();
+        allSkill = new ArrayList<>();
+        listUnstudy = new ArrayList<>();
+        listStudy = new ArrayList<>();
+        listCanStudy = new ArrayList<>();
     }
 
     public void init(){
@@ -32,16 +32,16 @@ public class SkillList {
             skill.setSkillName(SKILLNAME[i]);
             skill.setSkillValue(SKILLDEFAULT[i]);
             skill.setStudied(false);
-            allSkill.put(SKILLNAME[i], skill);
+            allSkill.add(i, skill);
         }
     }
 
-    public Map<String, Skill> getListCanStudy(Integer[] canStudy){
+    public List<Skill> getListCanStudy(Integer[] canStudy){
         listCanStudy.clear();
         for(int i = 0;i<canStudy.length;i++){
-            for(Skill s : allSkill.values()){
+            for(Skill s : allSkill){
                 if(s.getSkillId()==canStudy[i]){
-                    listCanStudy.put(s.getSkillName(),s);
+                    listCanStudy.add(s);
                     break;
                 }
             }
@@ -51,61 +51,65 @@ public class SkillList {
         return listCanStudy;
     }
 
-    public Map<String, Skill> getListStudy(){
+    public List<Skill> getListStudy(){
         listStudy.clear();
-        for(Skill s : allSkill.values()){
+        for(Skill s : allSkill){
             if(s.getStudied())
-                listStudy.put(s.getSkillName(),s);
+                listStudy.add(s);
         }
         return listStudy;
     }
 
-    public Map<String, Skill> getListUnstudy(){
+    public List<Skill> getListUnstudy(){
         listUnstudy.clear();
-        for(Skill s : allSkill.values()){
+        for(Skill s : allSkill){
             if(!s.getStudied())
-                listUnstudy.put(s.getSkillName(),s);
+                listUnstudy.add(s);
         }
         return listUnstudy;
     }
 
-    public Map<String, Skill> getAllSkill() {
+    public List<Skill> getAllSkill() {
         return allSkill;
     }
 
     public void setAllSkill(String jsonStr) {
-        this.allSkill = JSON.parseObject(jsonStr, new TypeReference<Map<String, Skill>>() {});
+        this.allSkill = JSON.parseArray(jsonStr, Skill.class);
     }
 
-    public void setAllSkill(Map<String, Skill> allSkill) {
+    public void setAllSkill(List<Skill> allSkill) {
         this.allSkill = allSkill;
     }
 
-    public void setListUnstudy(Map<String, Skill> listUnstudy) {
-        this.listUnstudy = listUnstudy;
-    }
 
-    public void setListStudy(Map<String, Skill> listStudy) {
-        this.listStudy = listStudy;
-    }
 
-    public void study(String skillName, Integer skillValue){
-        Skill skill = allSkill.get(skillName);
+    public void study(Integer skillId, Integer skillValue) {
+        Skill skill = allSkill.get(skillId);
         skill.setSkillValue(skillValue);
         skill.setStudied(true);
     }
 
-    public void defindSkill(String preSkillName, String defineSkillName){
-        Skill skill = allSkill.get(preSkillName);
+    public void setListUnstudy(List<Skill> listUnstudy) {
+        this.listUnstudy = listUnstudy;
+    }
+
+    public void setListStudy(List<Skill> listStudy) {
+        this.listStudy = listStudy;
+    }
+
+    public void setListCanStudy(List<Skill> listCanStudy) {
+        this.listCanStudy = listCanStudy;
+    }
+
+    public void defindSkill(Integer skillId, String defineSkillName){
+        Skill skill = allSkill.get(skillId);
         skill.setSkillName(defineSkillName);
         skill.setStudied(true);
-        allSkill.remove(preSkillName);
-        allSkill.put(preSkillName,skill);
     }
 
     public List<Skill> getJsonListStudy(){
         List<Skill> studylist = new ArrayList<>();
-        for(Skill s : allSkill.values()){
+        for(Skill s : allSkill){
             if(s.getStudied())
                 studylist.add(s);
         }
@@ -114,7 +118,7 @@ public class SkillList {
 
     public List<Skill> getJsonListUnstudy(){
         List<Skill> unstudylist = new ArrayList<>();
-        for(Skill s : allSkill.values()){
+        for(Skill s : allSkill){
             if(!s.getStudied())
                 unstudylist.add(s);
         }

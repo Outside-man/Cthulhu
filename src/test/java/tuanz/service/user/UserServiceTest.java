@@ -1,8 +1,11 @@
 package tuanz.service.user;
 
+import com.alibaba.fastjson.JSON;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import tuanz.model.pc.PCAttr;
+import tuanz.model.vo.base.Skill;
+import tuanz.model.vo.tools.SkillList;
 import tuanz.service.pc.PCAttrService;
 import tuanz.service.pc.PCInfoService;
 import tuanz.service.pc.PCSkillService;
@@ -40,9 +43,17 @@ public class UserServiceTest {
 //        skillList.init();
 //        Job job = new Job(1,pcAttr,skillList);
 //        System.out.println(JSON.toJSONString(skillList.getAllSkill()));
-         PCAttr pcAttr= pcAttrService.completePCAttr(1,10,10,10,10,10,10,10,10,10);
-         pcInfoService.completePCInfo(1,7,0,0,"","");
-         pcSkillService.initPCSkill(1);
+//         PCAttr pcAttr= pcAttrService.completePCAttr(1,10,10,10,10,10,10,10,10,10);
+//         pcInfoService.completePCInfo(1,7,0,0,"","");
+//         pcSkillService.initPCSkill(1);
+//        SkillList skillList = new SkillList();
+//        skillList.init();
+//        String str = JSON.toJSONString(skillList.getAllSkill());
+//        skillList.setAllSkill(str);
+//        skillList.defindSkill(60, "宇宙飞船");
+//        for(Skill s :skillList.getAllSkill()){
+//            System.out.println(s.getSkillId()+" "+s.getSkillName());
+//        }
 
     }
 

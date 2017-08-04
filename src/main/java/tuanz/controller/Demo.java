@@ -59,11 +59,12 @@ public class Demo extends BaseController {
 
 //
 //        PC pc = pcService.create(1,"武田君","水手","男","东京",22);
-        PCAttr pcAttr= pcAttrService.completePCAttr(2,10,10,10,10,10,10,10,10,10);
-        pcInfoService.completePCInfo(2,7,0,0,"","");
-        pcSkillService.initPCSkill(2);
-        pcMagicService.initPCMagic(2);
-        pcItemService.initPCItem(2);
+//        PCAttr pcAttr= pcAttrService.completePCAttr(2,10,10,10,10,10,10,10,10,10);
+//        pcInfoService.completePCInfo(2,7,0,0,"","");
+//        pcSkillService.initPCSkill(2);
+//        pcMagicService.initPCMagic(2);
+//        pcItemService.initPCItem(2);
+         pcSkillService.initPCSkill(2);
 
         return null;
     }
